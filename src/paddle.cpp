@@ -8,7 +8,8 @@ Paddle::Paddle(int width, int height, Paddle::Side side) {
     body.w = width / 60;
     body.h = height / 4;
     body.y = (height / 2) - (body.h / 2);
-    (side == Paddle::Side::kLeft) ? body.x = width / 22 : body.x = width - body.w - body.x;
+    if (side == Paddle::Side::kLeft) body.x = width / 22 ;
+    else body.x = width - body.w - body.x;
 }
 
 void Paddle::Move(Paddle::Direction direction) {
